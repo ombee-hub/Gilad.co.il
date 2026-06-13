@@ -53,7 +53,7 @@
     '<div class="a11y-foot">' +
     '<button class="a11y-reset" type="button">' + I('<path d="M3 12a9 9 0 109-9 9 9 0 00-7 3.3M3 3v3.3h3.3"/>') +
     '<span data-en="Reset accessibility settings" data-he="איפוס הגדרות נגישות">איפוס הגדרות נגישות</span></button>' +
-    '<span class="a11y-state" data-en="Powered by Gilad accessibility" data-he="נגישות אתר גלעד">נגישות אתר גלעד</span>' +
+    '<div class="a11y-links-foot"><a href="accessibility-statement.html" data-en="Accessibility statement" data-he="הצהרת נגישות">הצהרת נגישות</a><a href="privacy-policy.html" data-en="Privacy policy" data-he="מדיניות פרטיות">מדיניות פרטיות</a></div>' +
     '</div>';
 
   root.appendChild(backdrop); root.appendChild(panel); root.appendChild(fab);

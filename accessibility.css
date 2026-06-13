@@ -5,7 +5,7 @@
 
 /* ---------- floating button ---------- */
 .a11y-fab {
-  position: fixed; inset-block-end: 22px; left: 22px; z-index: 9000;
+  position: fixed; inset-block-end: 22px; right: 22px; z-index: 9000;
   width: 58px; height: 58px; border-radius: 50%; border: 0; cursor: pointer;
   background: var(--ac-brand); color: #fff; display: grid; place-items: center;
   box-shadow: 0 10px 26px -6px rgba(40,20,0,.55); transition: transform .2s ease, background .2s ease;
@@ -17,10 +17,10 @@
 .a11y-backdrop { position: fixed; inset: 0; background: rgba(25,15,6,.45); opacity: 0; visibility: hidden; transition: opacity .3s ease; z-index: 9001; }
 .a11y-backdrop.open { opacity: 1; visibility: visible; }
 .a11y-panel {
-  position: fixed; top: 0; bottom: 0; left: 0; width: min(93vw, 350px); z-index: 9002;
+  position: fixed; top: 0; bottom: 0; right: 0; width: min(93vw, 350px); z-index: 9002;
   background: var(--ac-sand); display: flex; flex-direction: column; overflow: hidden;
-  transform: translateX(-100%); transition: transform .32s cubic-bezier(.4,0,.2,1);
-  box-shadow: 12px 0 44px -12px rgba(0,0,0,.5); font-family: "Manrope","Heebo",system-ui,sans-serif;
+  transform: translateX(100%); transition: transform .32s cubic-bezier(.4,0,.2,1);
+  box-shadow: -12px 0 44px -12px rgba(0,0,0,.5); font-family: "Manrope","Heebo",system-ui,sans-serif;
 }
 .a11y-panel.open { transform: none; }
 .a11y-head { background: var(--ac-brand); color: #fff; padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
@@ -44,13 +44,14 @@
 .a11y-tile.on .dots i.fill { background: var(--ac-orange); }
 
 .a11y-foot { padding: 12px 14px 16px; border-top: 1px solid var(--ac-line); display: flex; flex-direction: column; gap: 8px; }
-.a11y-reset { background: var(--ac-green); color: #fff; border: 0; border-radius: 12px; padding: 13px; font-family: inherit; font-weight: 800; font-size: .95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background .2s; }
-.a11y-reset:hover { background: #4e7f31; }
+.a11y-reset { background: var(--ac-brand); color: #fff; border: 0; border-radius: 12px; padding: 13px; font-family: inherit; font-weight: 800; font-size: .95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background .2s; }
+.a11y-reset:hover { background: var(--ac-brand-d); }
 .a11y-reset svg { width: 17px; height: 17px; }
-.a11y-state { text-align: center; font-size: .78rem; color: var(--ac-ink); opacity: .7; }
-.a11y-state a { color: var(--ac-brand-d); font-weight: 700; }
+.a11y-links-foot { display: flex; justify-content: center; gap: 16px; font-size: .8rem; flex-wrap: wrap; }
+.a11y-links-foot a { color: var(--ac-brand-d); font-weight: 700; }
+.a11y-links-foot a:hover { color: var(--ac-orange); }
 
-@media (max-width: 560px) { .a11y-fab { width: 52px; height: 52px; inset-block-end: 16px; left: 16px; } }
+@media (max-width: 560px) { .a11y-fab { width: 52px; height: 52px; inset-block-end: 16px; right: 16px; } }
 
 /* ============================================================
    EFFECT CLASSES (applied to <html>)

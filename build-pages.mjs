@@ -171,6 +171,7 @@ const FOOTER = `<footer class="footer">
     </div>
     <div class="footer-bottom">
       <span>© <span id="year"></span> <span data-en="All rights reserved to Gilad Desert Produce Ltd" data-he="כל הזכויות שמורות ל-Gilad Desert Produce Ltd">All rights reserved to Gilad Desert Produce Ltd</span></span>
+      <span class="footer-legal"><a href="accessibility-statement.html" data-en="Accessibility statement" data-he="הצהרת נגישות">הצהרת נגישות</a><a href="privacy-policy.html" data-en="Privacy policy" data-he="מדיניות פרטיות">מדיניות פרטיות</a></span>
       <a class="credit" href="https://ombee.co.il" target="_blank" rel="noopener" aria-label="OMBee — ombee.co.il">
         <span data-en="Design &amp; build by:" data-he="עיצוב ובנייה ע״י:">Design &amp; build by:</span>
         <img src="images/ombee-logo.png" alt="OMBee">
@@ -233,6 +234,57 @@ ${GROWER_CARDS.map(([href, d, en, he, ben, bhe]) => `      <a class="value-card"
   </div>
 </section>`;
 
+const STATEMENT_PAGE = `<section class="section section--cream">
+  <div class="wrap legal">
+    <span class="eyebrow" data-en="Accessibility" data-he="נגישות">Accessibility</span>
+    <h1 data-en="Accessibility Statement" data-he="הצהרת נגישות">Accessibility Statement</h1>
+    <p class="lead" data-en="Gilad Desert Produce is committed to equal, accessible service for all visitors, and works to make its website usable by people with disabilities." data-he="גלעד תוצרת מדבר רואה חשיבות רבה במתן שירות שוויוני לכלל הגולשים, ופועלת להנגשת אתר האינטרנט שלה לאנשים עם מוגבלות.">Gilad Desert Produce is committed to equal, accessible service for all visitors.</p>
+    <h2 data-en="Our commitment" data-he="המחויבות שלנו">Our commitment</h2>
+    <p data-en="We strive for this site to meet the Equal Rights for Persons with Disabilities Regulations (2013) and Israeli Standard IS 5568 at level AA, based on the W3C WCAG 2.0 guidelines." data-he="אנו שואפים שאתר זה יעמוד בדרישות תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע״ג‑2013, ובתקן הישראלי ת״י 5568 ברמת AA, המבוסס על הנחיות WCAG 2.0.">We strive for this site to meet IS 5568 level AA (WCAG 2.0).</p>
+    <h2 data-en="Accessibility features" data-he="התאמות הנגישות באתר">Accessibility features</h2>
+    <p data-en="The site includes an accessibility menu (a button at the corner of the screen) that lets you, among other things:" data-he="האתר כולל תפריט נגישות (לחצן בפינת המסך) המאפשר, בין היתר:">The site includes an accessibility menu that lets you, among other things:</p>
+    <ul>
+      <li data-en="Adjust contrast and colours" data-he="שינוי ניגודיות וגוונים">Adjust contrast and colours</li>
+      <li data-en="Enlarge text, letter spacing and line height" data-he="הגדלת טקסט, ריווח אותיות וגובה שורה">Enlarge text, letter spacing and line height</li>
+      <li data-en="Highlight links and show descriptions" data-he="הדגשת קישורים והצגת תיאורים">Highlight links and show descriptions</li>
+      <li data-en="Stop animations, hide images and enlarge the cursor" data-he="עצירת הנפשות, הסתרת תמונות וסמן מוגדל">Stop animations, hide images and enlarge the cursor</li>
+      <li data-en="Switch to a dyslexia-friendly font" data-he="מעבר לגופן ידידותי לדיסלקציה">Switch to a dyslexia-friendly font</li>
+    </ul>
+    <p data-en="The site is also built with semantic structure, supports keyboard navigation and is responsive across devices." data-he="בנוסף, האתר נבנה במבנה סמנטי, ניתן לניווט במקלדת ומותאם לתצוגה במגוון מסכים ומכשירים.">The site is built with semantic structure, keyboard navigation and responsive design.</p>
+    <h2 data-en="Limitations" data-he="החרגות ומגבלות">Limitations</h2>
+    <p data-en="Some parts of the site, or third-party content, may not be fully accessible. We continue to improve accessibility on an ongoing basis." data-he="ייתכן שחלקים מסוימים באתר, או תכנים של צד שלישי, אינם נגישים במלואם. אנו ממשיכים לשפר את הנגישות באופן שוטף.">Some parts, or third-party content, may not be fully accessible; we keep improving.</p>
+    <h2 data-en="Contact &amp; accessibility coordinator" data-he="פנייה ורכז נגישות">Contact &amp; accessibility coordinator</h2>
+    <p data-en="For any question, request or report of an accessibility issue, please contact our accessibility coordinator:" data-he="בכל שאלה, בקשה או דיווח על בעיית נגישות ניתן לפנות אל רכז/ת הנגישות:">For any accessibility issue, contact our accessibility coordinator:</p>
+    <ul>
+      <li data-en="Phone: 08-6582515" data-he="טלפון: 08-6582515">Phone: 08-6582515</li>
+      <li data-en="Email: eyal@giladltd.co.il" data-he="דוא״ל: eyal@giladltd.co.il">Email: eyal@giladltd.co.il</li>
+      <li data-en="Address: Ein Yahav, Central Arava" data-he="כתובת: עין יהב, הערבה התיכונה">Address: Ein Yahav, Central Arava</li>
+    </ul>
+    <p class="updated" data-en="This statement was last updated in June 2026." data-he="הצהרת הנגישות עודכנה לאחרונה ביוני 2026.">Last updated June 2026.</p>
+  </div>
+</section>`;
+
+const PRIVACY_PAGE = `<section class="section section--cream">
+  <div class="wrap legal">
+    <span class="eyebrow" data-en="Privacy" data-he="פרטיות">Privacy</span>
+    <h1 data-en="Privacy Policy" data-he="מדיניות פרטיות">Privacy Policy</h1>
+    <p class="lead" data-en="This policy explains how Gilad Desert Produce collects, uses and protects information when you use this website." data-he="מדיניות זו מסבירה כיצד גלעד תוצרת מדבר אוספת, משתמשת ושומרת מידע במסגרת השימוש באתר זה.">How Gilad Desert Produce collects, uses and protects your information.</p>
+    <h2 data-en="Information we collect" data-he="איזה מידע אנו אוספים">Information we collect</h2>
+    <p data-en="Information you choose to provide via the contact form (name, email, subject and message), and technical information collected automatically such as browser type, pages viewed and general usage data." data-he="מידע שתמסרו מרצונכם בטופס יצירת הקשר (שם, דוא״ל, נושא ותוכן הפנייה), וכן מידע טכני הנאסף אוטומטית כגון סוג דפדפן, עמודים שנצפו ונתוני שימוש כלליים.">Contact-form details you provide, plus automatic technical/usage data.</p>
+    <h2 data-en="How we use information" data-he="שימוש במידע">How we use information</h2>
+    <p data-en="To respond to enquiries, provide service and improve the website experience. We do not sell personal information to third parties." data-he="המידע משמש למענה לפניות, למתן שירות ולשיפור חוויית השימוש באתר. איננו מוכרים מידע אישי לצדדים שלישיים.">To respond to enquiries and improve the site. We do not sell personal information.</p>
+    <h2 data-en="Cookies &amp; preferences" data-he="עוגיות והעדפות">Cookies &amp; preferences</h2>
+    <p data-en="The site may use cookies essential to its operation. Your accessibility-menu and language preferences are stored locally in your browser and are not sent to us." data-he="האתר עשוי לעשות שימוש בעוגיות חיוניות לתפעולו. העדפות תפריט הנגישות והשפה נשמרות מקומית בדפדפן שלכם ואינן נשלחות אלינו.">Essential cookies only; accessibility and language preferences stay in your browser.</p>
+    <h2 data-en="Security &amp; retention" data-he="אבטחה ושמירת מידע">Security &amp; retention</h2>
+    <p data-en="We take reasonable measures to protect the information and keep it only for as long as needed for the purposes for which it was collected." data-he="אנו נוקטים אמצעים סבירים להגנה על המידע, ושומרים אותו רק למשך הזמן הנדרש למטרות שלשמן נאסף.">We protect the data and keep it only as long as needed.</p>
+    <h2 data-en="Your rights" data-he="הזכויות שלכם">Your rights</h2>
+    <p data-en="You may contact us at any time to review the information collected about you, correct it, or request its deletion." data-he="באפשרותכם לפנות אלינו בכל עת כדי לעיין במידע שנאסף עליכם, לתקנו או לבקש את מחיקתו.">Contact us to review, correct or delete your information.</p>
+    <h2 data-en="Contact" data-he="יצירת קשר">Contact</h2>
+    <p data-en="For privacy questions contact: eyal@giladltd.co.il · 08-6582515." data-he="בשאלות בנושא פרטיות ניתן לפנות אל: eyal@giladltd.co.il · 08-6582515.">For privacy questions: eyal@giladltd.co.il · 08-6582515.</p>
+    <p class="updated" data-en="This policy was last updated in June 2026." data-he="המדיניות עודכנה לאחרונה ביוני 2026.">Last updated June 2026.</p>
+  </div>
+</section>`;
+
 function page(bodyClass, cur, headHtml, bodyHtml) {
   return `${headHtml}
 <body${bodyClass ? ' class="' + bodyClass + '"' : ''}>
@@ -280,4 +332,12 @@ write('growers.html', page('inner', 'growers',
   head('Growers — Gilad Desert Produce', `מגדלים — ${B}`, 'The growers portal: water tests, specs, procedures, forms and more.', 'פורטל המגדלים: בדיקות מים, מפרטים, נהלים, טפסים ועוד.'),
   GROWERS_PAGE));
 
-console.log('Built: index, about, products, process, quality, contact, growers');
+write('accessibility-statement.html', page('inner', '',
+  head('Accessibility Statement — Gilad Desert Produce', `הצהרת נגישות — ${B}`, 'Our commitment to web accessibility and how to report an issue.', 'המחויבות שלנו לנגישות האתר וכיצד לדווח על בעיה.'),
+  STATEMENT_PAGE));
+
+write('privacy-policy.html', page('inner', '',
+  head('Privacy Policy — Gilad Desert Produce', `מדיניות פרטיות — ${B}`, 'How we collect, use and protect your information.', 'כיצד אנו אוספים, משתמשים ושומרים את המידע שלכם.'),
+  PRIVACY_PAGE));
+
+console.log('Built: index, about, products, process, quality, contact, growers, accessibility-statement, privacy-policy');
