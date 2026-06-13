@@ -1,0 +1,95 @@
+/* ============================================================
+   Gilad — accessibility widget (brand colours) + effect classes
+   ============================================================ */
+:root { --ac-brand: #723300; --ac-brand-d: #561f00; --ac-orange: #E08524; --ac-green: #5E9A3E; --ac-sand: #FCF8F1; --ac-sand2: #F6EEDF; --ac-line: #E4D6BE; --ac-ink: #2B2118; }
+
+/* ---------- floating button ---------- */
+.a11y-fab {
+  position: fixed; inset-block-end: 22px; left: 22px; z-index: 9000;
+  width: 58px; height: 58px; border-radius: 50%; border: 0; cursor: pointer;
+  background: var(--ac-brand); color: #fff; display: grid; place-items: center;
+  box-shadow: 0 10px 26px -6px rgba(40,20,0,.55); transition: transform .2s ease, background .2s ease;
+}
+.a11y-fab:hover { background: var(--ac-brand-d); transform: scale(1.06); }
+.a11y-fab svg { width: 32px; height: 32px; }
+
+/* ---------- backdrop + panel ---------- */
+.a11y-backdrop { position: fixed; inset: 0; background: rgba(25,15,6,.45); opacity: 0; visibility: hidden; transition: opacity .3s ease; z-index: 9001; }
+.a11y-backdrop.open { opacity: 1; visibility: visible; }
+.a11y-panel {
+  position: fixed; top: 0; bottom: 0; left: 0; width: min(93vw, 350px); z-index: 9002;
+  background: var(--ac-sand); display: flex; flex-direction: column; overflow: hidden;
+  transform: translateX(-100%); transition: transform .32s cubic-bezier(.4,0,.2,1);
+  box-shadow: 12px 0 44px -12px rgba(0,0,0,.5); font-family: "Manrope","Heebo",system-ui,sans-serif;
+}
+.a11y-panel.open { transform: none; }
+.a11y-head { background: var(--ac-brand); color: #fff; padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.a11y-head h2 { font-size: 1.12rem; font-weight: 800; margin: 0; display: flex; align-items: center; gap: 9px; }
+.a11y-head h2 svg { width: 22px; height: 22px; }
+.a11y-close { background: rgba(255,255,255,.16); border: 0; color: #fff; width: 34px; height: 34px; border-radius: 9px; font-size: 20px; cursor: pointer; line-height: 1; transition: background .2s; }
+.a11y-close:hover { background: rgba(255,255,255,.3); }
+
+.a11y-grid { flex: 1; overflow-y: auto; padding: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: start; }
+.a11y-tile {
+  background: #fff; border: 1.5px solid var(--ac-line); border-radius: 14px; padding: 14px 8px 11px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; text-align: center;
+  color: var(--ac-ink); font-family: inherit; font-size: .82rem; font-weight: 600; transition: all .15s ease; position: relative;
+}
+.a11y-tile:hover { border-color: var(--ac-orange); background: var(--ac-sand2); }
+.a11y-tile svg { width: 30px; height: 30px; color: var(--ac-brand); stroke-width: 1.8; }
+.a11y-tile.on { border-color: var(--ac-brand); background: #fbeede; box-shadow: 0 0 0 1px var(--ac-brand) inset; }
+.a11y-tile.on svg, .a11y-tile.on { color: var(--ac-brand-d); }
+.a11y-tile .dots { display: flex; gap: 3px; height: 6px; }
+.a11y-tile .dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--ac-line); }
+.a11y-tile.on .dots i.fill { background: var(--ac-orange); }
+
+.a11y-foot { padding: 12px 14px 16px; border-top: 1px solid var(--ac-line); display: flex; flex-direction: column; gap: 8px; }
+.a11y-reset { background: var(--ac-green); color: #fff; border: 0; border-radius: 12px; padding: 13px; font-family: inherit; font-weight: 800; font-size: .95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background .2s; }
+.a11y-reset:hover { background: #4e7f31; }
+.a11y-reset svg { width: 17px; height: 17px; }
+.a11y-state { text-align: center; font-size: .78rem; color: var(--ac-ink); opacity: .7; }
+.a11y-state a { color: var(--ac-brand-d); font-weight: 700; }
+
+@media (max-width: 560px) { .a11y-fab { width: 52px; height: 52px; inset-block-end: 16px; left: 16px; } }
+
+/* ============================================================
+   EFFECT CLASSES (applied to <html>)
+   ============================================================ */
+/* bigger text (root font-size scales rem; body uses rem so it scales too) */
+html[data-ac-textsize="1"] { font-size: 18px; }
+html[data-ac-textsize="2"] { font-size: 20px; }
+html[data-ac-textsize="3"] { font-size: 22.5px; }
+html[data-ac-textsize] body { font-size: 1.06rem; }
+
+/* line height */
+html[data-ac-lineheight="1"] body :where(p,li,span,a,h1,h2,h3,h4,td,div) { line-height: 2 !important; }
+html[data-ac-lineheight="2"] body :where(p,li,span,a,h1,h2,h3,h4,td,div) { line-height: 2.6 !important; }
+
+/* text spacing */
+html[data-ac-spacing="1"] body :where(p,li,span,a,h1,h2,h3,h4,td) { letter-spacing: .09em !important; word-spacing: .14em !important; }
+html[data-ac-spacing="2"] body :where(p,li,span,a,h1,h2,h3,h4,td) { letter-spacing: .17em !important; word-spacing: .28em !important; }
+
+/* text align */
+html[data-ac-align="1"] body :where(p,li,h1,h2,h3,h4,.lead,td) { text-align: right !important; }
+html[data-ac-align="2"] body :where(p,li,h1,h2,h3,h4,.lead,td) { text-align: center !important; }
+html[data-ac-align="3"] body :where(p,li,h1,h2,h3,h4,.lead,td) { text-align: left !important; }
+
+/* highlight links */
+html.ac-links a { outline: 3px solid var(--ac-orange) !important; outline-offset: 2px; text-decoration: underline !important; text-underline-offset: 3px; font-weight: 700 !important; }
+
+/* hide images */
+html.ac-hideimg img { visibility: hidden !important; }
+html.ac-hideimg .hero__bg::after { opacity: 1; }
+
+/* stop animations */
+html.ac-noanim, html.ac-noanim * , html.ac-noanim *::before, html.ac-noanim *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+
+/* big cursor */
+html.ac-cursor, html.ac-cursor * { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M5 2l14 8-6 1 4 7-3 1-4-7-5 4z" fill="white" stroke="black" stroke-width="1.2"/></svg>') 4 2, auto !important; }
+
+/* dyslexia-friendly */
+html.ac-dyslexia body :where(p,li,span,a,h1,h2,h3,h4,button,input,textarea,label,td) { font-family: Verdana, Tahoma, Arial, "Segoe UI", sans-serif !important; letter-spacing: .05em !important; line-height: 1.9 !important; }
+
+/* negative (contrast level 2): re-invert media + keep the widget readable */
+html.ac-negative img, html.ac-negative video, html.ac-negative .hero__bg img { filter: invert(1) hue-rotate(180deg); }
+html.ac-negative .a11y-root { filter: invert(1) hue-rotate(180deg); }

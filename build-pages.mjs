@@ -90,6 +90,7 @@ function head(titleEn, titleHe, descEn, descHe) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="accessibility.css">
 </head>`;
 }
 
@@ -242,6 +243,7 @@ ${bodyHtml}
 
 ${FOOTER}
 
+<script src="accessibility.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
