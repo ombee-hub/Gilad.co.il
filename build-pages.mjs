@@ -149,6 +149,9 @@ const FOOTER = `<footer class="footer">
         <img src="images/Gilad.png" alt="Gilad Desert Produce">
         <p class="footer-tagline" data-en="Premium desert-grown produce, delivered fresh to the world's leading supermarkets." data-he="תוצרת מדברית משובחת, מגיעה טרייה לרשתות המובילות בעולם.">Premium desert-grown produce, delivered fresh to the world's leading supermarkets.</p>
       </div>
+      <div class="footer-sitemap">
+        <div class="sitemap-title"><span data-en="Site map" data-he="מפת האתר">מפת האתר</span></div>
+        <div class="footer-cols2">
       <div class="footer-col">
         <h4 data-en="Explore" data-he="ניווט">Explore</h4>
         <ul>
@@ -167,6 +170,8 @@ const FOOTER = `<footer class="footer">
           <li data-en="USA &amp; Canada" data-he="ארה״ב וקנדה">USA &amp; Canada</li>
           <li data-en="Russia" data-he="רוסיה">Russia</li>
         </ul>
+      </div>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
