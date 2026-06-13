@@ -71,15 +71,28 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  /* ---------- mobile nav ---------- */
+  /* ---------- mobile drawer ---------- */
   var burger = document.getElementById('burger');
-  var navLinks = document.getElementById('navLinks');
-  if (burger && navLinks) {
-    burger.addEventListener('click', function () { navLinks.classList.toggle('open'); });
-    navLinks.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () { navLinks.classList.remove('open'); });
+  var drawer = document.getElementById('drawer');
+  var backdrop = document.getElementById('drawerBackdrop');
+  var drawerClose = document.getElementById('drawerClose');
+  function setDrawer(open) {
+    if (!drawer || !backdrop) return;
+    drawer.classList.toggle('open', open);
+    backdrop.classList.toggle('open', open);
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+    if (burger) burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  if (burger) burger.addEventListener('click', function () { setDrawer(true); });
+  if (drawerClose) drawerClose.addEventListener('click', function () { setDrawer(false); });
+  if (backdrop) backdrop.addEventListener('click', function () { setDrawer(false); });
+  if (drawer) {
+    drawer.querySelectorAll('.drawer-links a').forEach(function (a) {
+      a.addEventListener('click', function () { setDrawer(false); });
     });
   }
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setDrawer(false); });
 
   /* ---------- product filter tabs ---------- */
   var tabs = document.getElementById('tabs');

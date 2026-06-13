@@ -84,7 +84,7 @@ function head(titleEn, titleHe, descEn, descHe) {
 </script>
 <title data-en="${titleEn}" data-he="${titleHe}">${titleHe}</title>
 <meta name="description" data-en="${descEn}" data-he="${descHe}">
-<link rel="icon" href="assets/Gilad.png">
+<link rel="icon" href="images/Gilad.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -98,7 +98,10 @@ function header(cur) {
   ).join('\n');
   return `<header class="header" id="header">
   <div class="wrap nav">
-    <a href="index.html" class="brand" aria-label="Gilad Desert Produce"><img src="assets/Gilad.png" alt="Gilad Desert Produce"></a>
+    <div class="nav-brand-group">
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="index.html" class="brand" aria-label="Gilad Desert Produce"><img src="images/Gilad.png" alt="Gilad Desert Produce"></a>
+    </div>
     <nav class="nav-links" id="navLinks">
 ${links}
     </nav>
@@ -114,17 +117,34 @@ ${links}
           <button class="lang-opt" data-lang="he" role="menuitem">עברית</button>
         </div>
       </div>
-      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
-</header>`;
+</header>
+
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-top">
+    <a href="index.html" class="brand"><img src="images/Gilad.png" alt="Gilad Desert Produce"></a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close">&times;</button>
+  </div>
+  <nav class="drawer-links">
+${links}
+  </nav>
+  <div class="drawer-foot">
+    <a href="contact.html" class="btn btn--primary" data-en="Contact" data-he="יצירת קשר">Contact</a>
+    <div class="drawer-lang">
+      <button class="lang-opt" data-lang="he">עברית</button>
+      <button class="lang-opt" data-lang="en">English</button>
+    </div>
+  </div>
+</aside>`;
 }
 
 const FOOTER = `<footer class="footer">
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-col">
-        <img src="assets/Gilad.png" alt="Gilad Desert Produce">
+        <img src="images/Gilad.png" alt="Gilad Desert Produce">
         <p class="footer-tagline" data-en="Premium desert-grown produce, delivered fresh to the world's leading supermarkets." data-he="תוצרת מדברית משובחת, מגיעה טרייה לרשתות המובילות בעולם.">Premium desert-grown produce, delivered fresh to the world's leading supermarkets.</p>
       </div>
       <div class="footer-col">
@@ -148,10 +168,10 @@ const FOOTER = `<footer class="footer">
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year"></span> Gilad Desert Produce Ltd. <span data-en="All rights reserved." data-he="כל הזכויות שמורות.">All rights reserved.</span></span>
+      <span>© <span id="year"></span> <span data-en="All rights reserved to Gilad Desert Produce Ltd" data-he="כל הזכויות שמורות ל-Gilad Desert Produce Ltd">All rights reserved to Gilad Desert Produce Ltd</span></span>
       <a class="credit" href="https://ombee.co.il" target="_blank" rel="noopener" aria-label="OMBee — ombee.co.il">
         <span data-en="Design &amp; build by:" data-he="עיצוב ובנייה ע״י:">Design &amp; build by:</span>
-        <img src="assets/ombee-logo.png" alt="OMBee">
+        <img src="images/ombee-logo.png" alt="OMBee">
       </a>
     </div>
   </div>
