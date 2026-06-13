@@ -66,43 +66,42 @@ const NAV = [
   ['growers.html', 'Growers', 'מגדלים', 'growers'],
 ];
 
-function head(titleEn, titleHe, descEn, descHe) {
+function head(L, file, titleEn, titleHe, descEn, descHe) {
+  const P = L.pre, isHe = L.code === 'he';
   return `<!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="${L.code}" dir="${L.dir}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>
-  (function () {
-    var l = 'he';
-    try { l = localStorage.getItem('gilad-site-lang') || 'he'; } catch (e) {}
-    document.documentElement.lang = l;
-    document.documentElement.dir = l === 'he' ? 'rtl' : 'ltr';
-    document.documentElement.className += ' pre';
-    setTimeout(function () { document.documentElement.classList.remove('pre'); }, 1500);
-  })();
-</script>
-<title data-en="${titleEn}" data-he="${titleHe}">${titleHe}</title>
-<meta name="description" data-en="${descEn}" data-he="${descHe}">
-<link rel="icon" type="image/png" href="images/icon.png?v=2">
-<link rel="apple-touch-icon" href="images/icon.png?v=2">
+<script>document.documentElement.className+=' pre';setTimeout(function(){document.documentElement.classList.remove('pre');},1500);</script>
+<title data-en="${titleEn}" data-he="${titleHe}">${isHe ? titleHe : titleEn}</title>
+<meta name="description" data-en="${descEn}" data-he="${descHe}" content="${isHe ? descHe : descEn}">
+<link rel="alternate" hreflang="he" href="${L.he(file)}">
+<link rel="alternate" hreflang="en" href="${L.en(file)}">
+<link rel="alternate" hreflang="x-default" href="${L.he(file)}">
+<link rel="icon" type="image/png" href="${P}images/icon.png?v=2">
+<link rel="apple-touch-icon" href="${P}images/icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="accessibility.css">
+<link rel="stylesheet" href="${P}styles.css">
+<link rel="stylesheet" href="${P}accessibility.css">
 </head>`;
 }
 
-function header(cur) {
+function header(L, cur, file) {
+  const P = L.pre;
   const links = NAV.map(([href, en, he, key]) =>
     `      <a href="${href}"${key === cur ? ' class="current"' : ''} data-en="${en}" data-he="${he}">${he}</a>`
   ).join('\n');
+  const langLinks =
+    `          <a class="lang-opt${L.code === 'en' ? ' active' : ''}" data-lang="en" href="${L.en(file)}" hreflang="en" role="menuitem">English</a>
+          <a class="lang-opt${L.code === 'he' ? ' active' : ''}" data-lang="he" href="${L.he(file)}" hreflang="he" role="menuitem">עברית</a>`;
   return `<header class="header" id="header">
   <div class="wrap nav">
     <div class="nav-brand-group">
       <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      <a href="index.html" class="brand" aria-label="Gilad Desert Produce"><img src="images/Gilad.png" alt="Gilad Desert Produce"></a>
+      <a href="index.html" class="brand" aria-label="Gilad Desert Produce"><img src="${P}images/Gilad.png" alt="Gilad Desert Produce"></a>
     </div>
     <nav class="nav-links" id="navLinks">
 ${links}
@@ -115,8 +114,7 @@ ${links}
           <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="lang-menu" id="langMenu" role="menu">
-          <button class="lang-opt" data-lang="en" role="menuitem">English</button>
-          <button class="lang-opt" data-lang="he" role="menuitem">עברית</button>
+${langLinks}
         </div>
       </div>
     </div>
@@ -126,7 +124,7 @@ ${links}
 <div class="drawer-backdrop" id="drawerBackdrop"></div>
 <aside class="drawer" id="drawer" aria-hidden="true">
   <div class="drawer-top">
-    <a href="index.html" class="brand"><img src="images/Gilad.png" alt="Gilad Desert Produce"></a>
+    <a href="index.html" class="brand"><img src="${P}images/Gilad.png" alt="Gilad Desert Produce"></a>
     <button class="drawer-close" id="drawerClose" aria-label="Close">&times;</button>
   </div>
   <nav class="drawer-links">
@@ -135,18 +133,19 @@ ${links}
   <div class="drawer-foot">
     <a href="contact.html" class="btn btn--primary"><span data-en="Contact" data-he="יצירת קשר">Contact</span><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></a>
     <div class="drawer-lang">
-      <button class="lang-opt" data-lang="he">עברית</button>
-      <button class="lang-opt" data-lang="en">English</button>
+${langLinks}
     </div>
   </div>
 </aside>`;
 }
 
-const FOOTER = `<footer class="footer">
+function footer(L) {
+  const P = L.pre;
+  return `<footer class="footer">
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-col">
-        <img src="images/Gilad.png" alt="Gilad Desert Produce">
+        <img src="${P}images/Gilad.png" alt="Gilad Desert Produce">
         <p class="footer-tagline" data-en="Premium desert-grown produce, delivered fresh to the world's leading supermarkets." data-he="תוצרת מדברית משובחת, מגיעה טרייה לרשתות המובילות בעולם.">Premium desert-grown produce, delivered fresh to the world's leading supermarkets.</p>
       </div>
       <div class="footer-sitemap">
@@ -179,11 +178,12 @@ const FOOTER = `<footer class="footer">
       <span class="footer-legal"><a href="accessibility-statement.html" data-en="Accessibility statement" data-he="הצהרת נגישות">הצהרת נגישות</a><a href="privacy-policy.html" data-en="Privacy policy" data-he="מדיניות פרטיות">מדיניות פרטיות</a></span>
       <a class="credit" href="https://ombee.co.il" target="_blank" rel="noopener" aria-label="OMBee — ombee.co.il">
         <span data-en="Design &amp; build by:" data-he="עיצוב ובנייה ע״י:">Design &amp; build by:</span>
-        <img src="images/ombee-logo.png" alt="OMBee">
+        <img src="${P}images/ombee-logo.png" alt="OMBee">
       </a>
     </div>
   </div>
 </footer>`;
+}
 
 // Home "explore" hub linking to the new pages
 const EXPLORE_CARDS = [
@@ -288,18 +288,22 @@ const PRIVACY_PAGE = `<section class="section section--cream">
   </div>
 </section>`;
 
-function page(bodyClass, cur, headHtml, bodyHtml) {
+function page(L, bodyClass, cur, file, headHtml, bodyHtml) {
+  const P = L.pre;
+  const body = P
+    ? bodyHtml.replaceAll('"images/', '"' + P + 'images/').replaceAll("'images/", "'" + P + 'images/').replaceAll('(images/', '(' + P + 'images/')
+    : bodyHtml;
   return `${headHtml}
 <body${bodyClass ? ' class="' + bodyClass + '"' : ''}>
 
-${header(cur)}
+${header(L, cur, file)}
 
-${bodyHtml}
+${body}
 
-${FOOTER}
+${footer(L)}
 
-<script src="accessibility.js"></script>
-<script src="app.js"></script>
+<script src="${P}accessibility.js"></script>
+<script src="${P}app.js"></script>
 </body>
 </html>
 `;
@@ -307,41 +311,45 @@ ${FOOTER}
 
 const B = 'גלעד תוצרת מדבר בע״מ';
 const BE = 'Gilad Desert Produce Ltd';
-write('index.html', page('', 'home',
-  head(`${BE} - Home`, `${B} - בית`,
-    "Premium desert-grown produce exported fresh to leading supermarkets worldwide.", 'תוצרת מדברית משובחת המיוצאת טרייה לרשתות המובילות בעולם.'),
-  `${SEC.hero}\n\n${EXPLORE}\n\n${SEC.growers}`));
 
-write('about.html', page('inner', 'about',
-  head(`${BE} - About`, `${B} - אודות`, 'Rooted in the Arava: our story, values and commitment to quality.', 'שורשים בערבה: הסיפור, הערכים והמחויבות לאיכות.'),
-  SEC.about));
+// Two language editions: Hebrew at the root, English under /en/.
+// Asset paths get a `../` prefix in /en/; page links stay relative so they
+// resolve within each folder; the language switch links between the two.
+const LANGS = [
+  { code: 'he', dir: 'rtl', pre: '',    out: '',    he: (f) => f,         en: (f) => 'en/' + f },
+  { code: 'en', dir: 'ltr', pre: '../', out: 'en/', he: (f) => '../' + f, en: (f) => f },
+];
 
-write('products.html', page('inner', 'products',
-  head(`${BE} - Products`, `${B} - מוצרים`, 'Peppers, tomatoes and melons in conventional and organic lines.', 'פלפלים, עגבניות ומלונים בקווים קונבנציונליים ואורגניים.'),
-  SEC.products));
+const PAGES = [
+  { file: 'index.html', cls: '', cur: 'home', te: 'Home', th: 'בית',
+    de: 'Premium desert-grown produce exported fresh to leading supermarkets worldwide.', dh: 'תוצרת מדברית משובחת המיוצאת טרייה לרשתות המובילות בעולם.',
+    body: `${SEC.hero}\n\n${EXPLORE}\n\n${SEC.growers}` },
+  { file: 'about.html', cls: 'inner', cur: 'about', te: 'About', th: 'אודות',
+    de: 'Rooted in the Arava: our story, values and commitment to quality.', dh: 'שורשים בערבה: הסיפור, הערכים והמחויבות לאיכות.', body: SEC.about },
+  { file: 'products.html', cls: 'inner', cur: 'products', te: 'Products', th: 'מוצרים',
+    de: 'Peppers, tomatoes and melons in conventional and organic lines.', dh: 'פלפלים, עגבניות ומלונים בקווים קונבנציונליים ואורגניים.', body: SEC.products },
+  { file: 'process.html', cls: 'inner', cur: 'process', te: 'Process', th: 'תהליך',
+    de: 'From the field to your shelf in six steps.', dh: 'מהשדה אל המדף בשישה שלבים.', body: SEC.process },
+  { file: 'quality.html', cls: 'inner', cur: 'quality', te: 'Quality', th: 'איכות',
+    de: 'Food safety, residue testing and full traceability.', dh: 'בטיחות מזון, בדיקות שאריות ועקיבות מלאה.', body: SEC.quality },
+  { file: 'contact.html', cls: 'inner', cur: 'contact', te: 'Contact', th: 'יצירת קשר',
+    de: 'Talk to our team in Israel and Europe.', dh: 'דברו עם הצוות שלנו בישראל ובאירופה.', body: SEC.contact },
+  { file: 'growers.html', cls: 'inner', cur: 'growers', te: 'Growers', th: 'מגדלים',
+    de: 'The growers portal: water tests, specs, procedures, forms and more.', dh: 'פורטל המגדלים: בדיקות מים, מפרטים, נהלים, טפסים ועוד.', body: GROWERS_PAGE },
+  { file: 'accessibility-statement.html', cls: 'inner', cur: '', te: 'Accessibility Statement', th: 'הצהרת נגישות',
+    de: 'Our commitment to web accessibility and how to report an issue.', dh: 'המחויבות שלנו לנגישות האתר וכיצד לדווח על בעיה.', body: STATEMENT_PAGE },
+  { file: 'privacy-policy.html', cls: 'inner', cur: '', te: 'Privacy Policy', th: 'מדיניות פרטיות',
+    de: 'How we collect, use and protect your information.', dh: 'כיצד אנו אוספים, משתמשים ושומרים את המידע שלכם.', body: PRIVACY_PAGE },
+];
 
-write('process.html', page('inner', 'process',
-  head(`${BE} - Process`, `${B} - תהליך`, 'From the field to your shelf in six steps.', 'מהשדה אל המדף בשישה שלבים.'),
-  SEC.process));
+fs.mkdirSync(path.join(DIR, 'en'), { recursive: true });
 
-write('quality.html', page('inner', 'quality',
-  head(`${BE} - Quality`, `${B} - איכות`, 'Food safety, residue testing and full traceability.', 'בטיחות מזון, בדיקות שאריות ועקיבות מלאה.'),
-  SEC.quality));
-
-write('contact.html', page('inner', 'contact',
-  head(`${BE} - Contact`, `${B} - יצירת קשר`, 'Talk to our team in Israel and Europe.', 'דברו עם הצוות שלנו בישראל ובאירופה.'),
-  SEC.contact));
-
-write('growers.html', page('inner', 'growers',
-  head(`${BE} - Growers`, `${B} - מגדלים`, 'The growers portal: water tests, specs, procedures, forms and more.', 'פורטל המגדלים: בדיקות מים, מפרטים, נהלים, טפסים ועוד.'),
-  GROWERS_PAGE));
-
-write('accessibility-statement.html', page('inner', '',
-  head(`${BE} - Accessibility Statement`, `${B} - הצהרת נגישות`, 'Our commitment to web accessibility and how to report an issue.', 'המחויבות שלנו לנגישות האתר וכיצד לדווח על בעיה.'),
-  STATEMENT_PAGE));
-
-write('privacy-policy.html', page('inner', '',
-  head(`${BE} - Privacy Policy`, `${B} - מדיניות פרטיות`, 'How we collect, use and protect your information.', 'כיצד אנו אוספים, משתמשים ושומרים את המידע שלכם.'),
-  PRIVACY_PAGE));
-
-console.log('Built: index, about, products, process, quality, contact, growers, accessibility-statement, privacy-policy');
+for (const L of LANGS) {
+  for (const p of PAGES) {
+    const html = page(L, p.cls, p.cur, p.file,
+      head(L, p.file, `${BE} - ${p.te}`, `${B} - ${p.th}`, p.de, p.dh),
+      p.body);
+    write(L.out + p.file, html);
+  }
+}
+console.log('Built he (root) + en (/en/): ' + PAGES.length + ' pages each (' + (PAGES.length * 2) + ' total)');

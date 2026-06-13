@@ -34,8 +34,8 @@
     });
   }
 
-  var saved = 'he';
-  try { saved = localStorage.getItem(STORE) || 'he'; } catch (e) {}
+  // Language is fixed by folder (root = Hebrew, /en/ = English) via <html lang>.
+  var saved = document.documentElement.lang === 'en' ? 'en' : 'he';
   applyLang(saved);
   document.documentElement.classList.remove('pre'); // reveal once translated (anti-flash)
 
@@ -45,15 +45,7 @@
       var open = langSwitch.classList.toggle('open');
       langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-    document.querySelectorAll('.lang-opt').forEach(function (o) {
-      o.addEventListener('click', function () {
-        var l = o.getAttribute('data-lang');
-        applyLang(l);
-        try { localStorage.setItem(STORE, l); } catch (e) {} // persist explicit choice
-        langSwitch.classList.remove('open');
-        langBtn.setAttribute('aria-expanded', 'false');
-      });
-    });
+    // .lang-opt are now <a> links to the other-language URL — let them navigate.
     document.addEventListener('click', function (e) {
       if (!langSwitch.contains(e.target)) {
         langSwitch.classList.remove('open');
