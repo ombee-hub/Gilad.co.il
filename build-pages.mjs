@@ -305,42 +305,43 @@ ${FOOTER}
 `;
 }
 
-const B = 'גלעד תוצרת מדבר';
+const B = 'גלעד תוצרת מדבר בע״מ';
+const BE = 'Gilad Desert Produce Ltd';
 write('index.html', page('', 'home',
-  head('Gilad Desert Produce — Premium peppers, tomatoes &amp; melons from the Arava', `${B} — פלפלים, עגבניות ומלונים מהערבה`,
+  head(`${BE} - Home`, `${B} - בית`,
     "Premium desert-grown produce exported fresh to leading supermarkets worldwide.", 'תוצרת מדברית משובחת המיוצאת טרייה לרשתות המובילות בעולם.'),
   `${SEC.hero}\n\n${EXPLORE}\n\n${SEC.growers}`));
 
 write('about.html', page('inner', 'about',
-  head('About — Gilad Desert Produce', `אודות — ${B}`, 'Rooted in the Arava: our story, values and commitment to quality.', 'שורשים בערבה: הסיפור, הערכים והמחויבות לאיכות.'),
+  head(`${BE} - About`, `${B} - אודות`, 'Rooted in the Arava: our story, values and commitment to quality.', 'שורשים בערבה: הסיפור, הערכים והמחויבות לאיכות.'),
   SEC.about));
 
 write('products.html', page('inner', 'products',
-  head('Products — Gilad Desert Produce', `מוצרים — ${B}`, 'Peppers, tomatoes and melons in conventional and organic lines.', 'פלפלים, עגבניות ומלונים בקווים קונבנציונליים ואורגניים.'),
+  head(`${BE} - Products`, `${B} - מוצרים`, 'Peppers, tomatoes and melons in conventional and organic lines.', 'פלפלים, עגבניות ומלונים בקווים קונבנציונליים ואורגניים.'),
   SEC.products));
 
 write('process.html', page('inner', 'process',
-  head('Process — Gilad Desert Produce', `התהליך — ${B}`, 'From the field to your shelf in six steps.', 'מהשדה אל המדף בשישה שלבים.'),
+  head(`${BE} - Process`, `${B} - תהליך`, 'From the field to your shelf in six steps.', 'מהשדה אל המדף בשישה שלבים.'),
   SEC.process));
 
 write('quality.html', page('inner', 'quality',
-  head('Quality — Gilad Desert Produce', `איכות — ${B}`, 'Food safety, residue testing and full traceability.', 'בטיחות מזון, בדיקות שאריות ועקיבות מלאה.'),
+  head(`${BE} - Quality`, `${B} - איכות`, 'Food safety, residue testing and full traceability.', 'בטיחות מזון, בדיקות שאריות ועקיבות מלאה.'),
   SEC.quality));
 
 write('contact.html', page('inner', 'contact',
-  head('Contact — Gilad Desert Produce', `יצירת קשר — ${B}`, 'Talk to our team in Israel and Europe.', 'דברו עם הצוות שלנו בישראל ובאירופה.'),
+  head(`${BE} - Contact`, `${B} - יצירת קשר`, 'Talk to our team in Israel and Europe.', 'דברו עם הצוות שלנו בישראל ובאירופה.'),
   SEC.contact));
 
 write('growers.html', page('inner', 'growers',
-  head('Growers — Gilad Desert Produce', `מגדלים — ${B}`, 'The growers portal: water tests, specs, procedures, forms and more.', 'פורטל המגדלים: בדיקות מים, מפרטים, נהלים, טפסים ועוד.'),
+  head(`${BE} - Growers`, `${B} - מגדלים`, 'The growers portal: water tests, specs, procedures, forms and more.', 'פורטל המגדלים: בדיקות מים, מפרטים, נהלים, טפסים ועוד.'),
   GROWERS_PAGE));
 
 write('accessibility-statement.html', page('inner', '',
-  head('Accessibility Statement — Gilad Desert Produce', `הצהרת נגישות — ${B}`, 'Our commitment to web accessibility and how to report an issue.', 'המחויבות שלנו לנגישות האתר וכיצד לדווח על בעיה.'),
+  head(`${BE} - Accessibility Statement`, `${B} - הצהרת נגישות`, 'Our commitment to web accessibility and how to report an issue.', 'המחויבות שלנו לנגישות האתר וכיצד לדווח על בעיה.'),
   STATEMENT_PAGE));
 
 write('privacy-policy.html', page('inner', '',
-  head('Privacy Policy — Gilad Desert Produce', `מדיניות פרטיות — ${B}`, 'How we collect, use and protect your information.', 'כיצד אנו אוספים, משתמשים ושומרים את המידע שלכם.'),
+  head(`${BE} - Privacy Policy`, `${B} - מדיניות פרטיות`, 'How we collect, use and protect your information.', 'כיצד אנו אוספים, משתמשים ושומרים את המידע שלכם.'),
   PRIVACY_PAGE));
 
 console.log('Built: index, about, products, process, quality, contact, growers, accessibility-statement, privacy-policy');
