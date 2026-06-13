@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  (function () {
+    var l = 'he';
+    try { l = localStorage.getItem('gilad-site-lang') || 'he'; } catch (e) {}
+    document.documentElement.lang = l;
+    document.documentElement.dir = l === 'he' ? 'rtl' : 'ltr';
+    document.documentElement.className += ' pre';
+    setTimeout(function () { document.documentElement.classList.remove('pre'); }, 1500);
+  })();
+</script>
+<title data-en="Contact — Gilad Desert Produce" data-he="יצירת קשר — גלעד תוצרת מדבר">יצירת קשר — גלעד תוצרת מדבר</title>
+<meta name="description" data-en="Talk to our team in Israel and Europe." data-he="דברו עם הצוות שלנו בישראל ובאירופה.">
+<link rel="icon" href="assets/Gilad.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="inner">
+
+<header class="header" id="header">
+  <div class="wrap nav">
+    <a href="index.html" class="brand" aria-label="Gilad Desert Produce"><img src="assets/Gilad.png" alt="Gilad Desert Produce"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="about.html" data-en="About" data-he="אודות">אודות</a>
+      <a href="products.html" data-en="Products" data-he="מוצרים">מוצרים</a>
+      <a href="process.html" data-en="Process" data-he="תהליך">תהליך</a>
+      <a href="quality.html" data-en="Quality" data-he="איכות">איכות</a>
+      <a href="growers.html" data-en="Growers" data-he="מגדלים">מגדלים</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="contact.html" class="btn btn--primary nav-cta" data-en="Contact" data-he="יצירת קשר">Contact</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn" id="langBtn" aria-label="Language" aria-haspopup="true" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 3.9 5.9 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.9-3.9-9S9.4 5.7 12 3z"/></svg>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="lang-menu" id="langMenu" role="menu">
+          <button class="lang-opt" data-lang="en" role="menuitem">English</button>
+          <button class="lang-opt" data-lang="he" role="menuitem">עברית</button>
+        </div>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="section section--cream" id="contact">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow" data-en="Contact" data-he="יצירת קשר">Contact</span>
+      <h2 class="title" data-en="Let's talk produce" data-he="בואו נדבר תוצרת">Let's talk produce</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="office">
+          <h3><span class="pin">◍</span> <span data-en="Head office &amp; packing house" data-he="משרד ראשי ובית אריזה">Head office &amp; packing house</span></h3>
+          <p data-en="Ein Yahav, Central Arava, Israel" data-he="עין יהב, הערבה התיכונה, ישראל">Ein Yahav, Central Arava, Israel</p>
+          <p><a href="tel:086582515">08-6582515</a></p>
+        </div>
+        <div class="office">
+          <h3><span class="pin">◍</span> <span data-en="Sales &amp; marketing — Europe" data-he="מכירות ושיווק — אירופה">Sales &amp; marketing — Europe</span></h3>
+          <p data-en="Gilad Produce B.V., The Netherlands" data-he="Gilad Produce B.V., הולנד">Gilad Produce B.V., The Netherlands</p>
+          <p><a href="mailto:jan@giladproduce.nl">jan@giladproduce.nl</a></p>
+        </div>
+        <div class="office" style="border-bottom:0">
+          <h3><span class="pin">✉</span> <span data-en="Email us" data-he="כתבו לנו">Email us</span></h3>
+          <p><a href="mailto:eyal@giladltd.co.il">eyal@giladltd.co.il</a> · <a href="mailto:yuval@giladltd.co.il">yuval@giladltd.co.il</a></p>
+        </div>
+      </div>
+
+      <form class="form-card reveal" id="contactForm">
+        <div class="field">
+          <label data-en="Name" data-he="שם">Name</label>
+          <input type="text" name="name" required data-en-ph="Your name" data-he-ph="השם שלך">
+        </div>
+        <div class="field">
+          <label data-en="Email" data-he="אימייל">Email</label>
+          <input type="email" name="email" required data-en-ph="you@company.com" data-he-ph="you@company.com">
+        </div>
+        <div class="field">
+          <label data-en="Subject" data-he="נושא">Subject</label>
+          <input type="text" name="subject" data-en-ph="How can we help?" data-he-ph="איך נוכל לעזור?">
+        </div>
+        <div class="field">
+          <label data-en="Message" data-he="הודעה">Message</label>
+          <textarea name="message" data-en-ph="Tell us about your enquiry…" data-he-ph="ספרו לנו על הפנייה שלכם…"></textarea>
+        </div>
+        <button type="submit" class="btn btn--green" style="width:100%; justify-content:center" data-en="Send message" data-he="שליחת הודעה">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-col">
+        <img src="assets/Gilad.png" alt="Gilad Desert Produce">
+        <p class="footer-tagline" data-en="Premium desert-grown produce, delivered fresh to the world's leading supermarkets." data-he="תוצרת מדברית משובחת, מגיעה טרייה לרשתות המובילות בעולם.">Premium desert-grown produce, delivered fresh to the world's leading supermarkets.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Explore" data-he="ניווט">Explore</h4>
+        <ul>
+          <li><a href="about.html" data-en="About" data-he="אודות">About</a></li>
+          <li><a href="products.html" data-en="Products" data-he="מוצרים">Products</a></li>
+          <li><a href="process.html" data-en="Process" data-he="תהליך">Process</a></li>
+          <li><a href="quality.html" data-en="Quality" data-he="איכות">Quality</a></li>
+          <li><a href="contact.html" data-en="Contact" data-he="יצירת קשר">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Markets" data-he="שווקים">Markets</h4>
+        <ul>
+          <li data-en="Europe" data-he="אירופה">Europe</li>
+          <li data-en="United Kingdom" data-he="בריטניה">United Kingdom</li>
+          <li data-en="USA &amp; Canada" data-he="ארה״ב וקנדה">USA &amp; Canada</li>
+          <li data-en="Russia" data-he="רוסיה">Russia</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Gilad Desert Produce Ltd. <span data-en="All rights reserved." data-he="כל הזכויות שמורות.">All rights reserved.</span></span>
+      <a class="credit" href="https://ombee.co.il" target="_blank" rel="noopener" aria-label="OMBee — ombee.co.il">
+        <span data-en="Design &amp; build by:" data-he="עיצוב ובנייה ע״י:">Design &amp; build by:</span>
+        <img src="assets/ombee-logo.png" alt="OMBee">
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

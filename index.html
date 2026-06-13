@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  (function () {
+    var l = 'he';
+    try { l = localStorage.getItem('gilad-site-lang') || 'he'; } catch (e) {}
+    document.documentElement.lang = l;
+    document.documentElement.dir = l === 'he' ? 'rtl' : 'ltr';
+    document.documentElement.className += ' pre';
+    setTimeout(function () { document.documentElement.classList.remove('pre'); }, 1500);
+  })();
+</script>
+<title data-en="Gilad Desert Produce — Premium peppers, tomatoes &amp; melons from the Arava" data-he="גלעד תוצרת מדבר — פלפלים, עגבניות ומלונים מהערבה">גלעד תוצרת מדבר — פלפלים, עגבניות ומלונים מהערבה</title>
+<meta name="description" data-en="Premium desert-grown produce exported fresh to leading supermarkets worldwide." data-he="תוצרת מדברית משובחת המיוצאת טרייה לרשתות המובילות בעולם.">
+<link rel="icon" href="assets/Gilad.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="wrap nav">
+    <a href="index.html" class="brand" aria-label="Gilad Desert Produce"><img src="assets/Gilad.png" alt="Gilad Desert Produce"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="about.html" data-en="About" data-he="אודות">אודות</a>
+      <a href="products.html" data-en="Products" data-he="מוצרים">מוצרים</a>
+      <a href="process.html" data-en="Process" data-he="תהליך">תהליך</a>
+      <a href="quality.html" data-en="Quality" data-he="איכות">איכות</a>
+      <a href="growers.html" data-en="Growers" data-he="מגדלים">מגדלים</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="contact.html" class="btn btn--primary nav-cta" data-en="Contact" data-he="יצירת קשר">Contact</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn" id="langBtn" aria-label="Language" aria-haspopup="true" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 3.9 5.9 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.9-3.9-9S9.4 5.7 12 3z"/></svg>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="lang-menu" id="langMenu" role="menu">
+          <button class="lang-opt" data-lang="en" role="menuitem">English</button>
+          <button class="lang-opt" data-lang="he" role="menuitem">עברית</button>
+        </div>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero__bg"><img src="assets/hero-arava.jpg" alt="Aerial view of Gilad's farms in the Arava desert"></div>
+  <div class="wrap hero__inner">
+    <span class="eyebrow" data-en="From the Arava desert to the world" data-he="מהערבה אל העולם">From the Arava desert to the world</span>
+    <h1 data-en-html="The finest fresh produce,<br><em>grown in the desert</em>" data-he-html="התוצרת הטרייה המשובחת,<br><em>שגדלה במדבר</em>">The finest fresh produce,<br><em>grown in the desert</em></h1>
+    <p data-en="Gilad Desert Produce grows and exports premium peppers, tomatoes and melons from Israel's Central Arava to the most prestigious supermarkets across Europe, the UK, USA, Canada and Russia." data-he="גלעד תוצרת מדבר מגדלת ומייצאת פלפלים, עגבניות ומלונים מובחרים מהערבה התיכונה אל רשתות הסופרמרקטים היוקרתיות באירופה, בריטניה, ארה״ב, קנדה ורוסיה.">Gilad Desert Produce grows and exports premium peppers, tomatoes and melons from Israel's Central Arava to the most prestigious supermarkets across Europe, the UK, USA, Canada and Russia.</p>
+    <div class="hero__cta">
+      <a href="products.html" class="btn btn--primary" data-en="Explore our produce" data-he="לתוצרת שלנו">Explore our produce
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="contact.html" class="btn btn--ghost" data-en="Get in touch" data-he="דברו איתנו">Get in touch</a>
+    </div>
+  </div>
+  </section>
+
+<section class="section section--cream">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow" data-en="Discover Gilad" data-he="הכירו את גלעד">Discover Gilad</span>
+      <h2 class="title" data-en="Explore our world" data-he="סיור באתר">Explore our world</h2>
+    </div>
+    <div class="values">
+      <a class="value-card" href="about.html">
+        <div class="value-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14c4 0 7 2 7 5H5c0-3 3-5 7-5z M12 4a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></div>
+        <h3 data-en="About" data-he="אודות">אודות</h3>
+        <p data-en="Our story, values and the Arava." data-he="הסיפור, הערכים והערבה.">הסיפור, הערכים והערבה.</p>
+      </a>
+      <a class="value-card" href="products.html">
+        <div class="value-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z M9 8a3 3 0 016 0"/></svg></div>
+        <h3 data-en="Products" data-he="מוצרים">מוצרים</h3>
+        <p data-en="Peppers, tomatoes and melons." data-he="פלפלים, עגבניות ומלונים.">פלפלים, עגבניות ומלונים.</p>
+      </a>
+      <a class="value-card" href="process.html">
+        <div class="value-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16 M14 6l6 6-6 6"/></svg></div>
+        <h3 data-en="Process" data-he="תהליך">תהליך</h3>
+        <p data-en="From the field to your shelf." data-he="מהשדה אל המדף.">מהשדה אל המדף.</p>
+      </a>
+      <a class="value-card" href="quality.html">
+        <div class="value-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z M9 12l2 2 4-4"/></svg></div>
+        <h3 data-en="Quality" data-he="איכות">איכות</h3>
+        <p data-en="Food safety and traceability." data-he="בטיחות מזון ועקיבות.">בטיחות מזון ועקיבות.</p>
+      </a>
+      <a class="value-card" href="contact.html">
+        <div class="value-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z M4 7l8 6 8-6"/></svg></div>
+        <h3 data-en="Contact" data-he="יצירת קשר">יצירת קשר</h3>
+        <p data-en="Talk to our team." data-he="דברו עם הצוות שלנו.">דברו עם הצוות שלנו.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="growers">
+  <div class="wrap">
+    <div class="growers reveal">
+      <div>
+        <h2 data-en="A dedicated portal for our growers" data-he="אזור ייעודי למגדלים שלנו">A dedicated portal for our growers</h2>
+        <p data-en="Water tests, product specs, procedures, forms, training and variety programs — everything our growers need, in one place." data-he="בדיקות מים, מפרטי מוצר, נהלים, טפסים, הדרכות ותוכניות זנים — כל מה שהמגדלים שלנו צריכים, במקום אחד.">Water tests, product specs, procedures, forms, training and variety programs — everything our growers need, in one place.</p>
+      </div>
+      <a href="growers.html" class="btn btn--dark" data-en="Growers area" data-he="כניסת מגדלים">Growers area
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-col">
+        <img src="assets/Gilad.png" alt="Gilad Desert Produce">
+        <p class="footer-tagline" data-en="Premium desert-grown produce, delivered fresh to the world's leading supermarkets." data-he="תוצרת מדברית משובחת, מגיעה טרייה לרשתות המובילות בעולם.">Premium desert-grown produce, delivered fresh to the world's leading supermarkets.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Explore" data-he="ניווט">Explore</h4>
+        <ul>
+          <li><a href="about.html" data-en="About" data-he="אודות">About</a></li>
+          <li><a href="products.html" data-en="Products" data-he="מוצרים">Products</a></li>
+          <li><a href="process.html" data-en="Process" data-he="תהליך">Process</a></li>
+          <li><a href="quality.html" data-en="Quality" data-he="איכות">Quality</a></li>
+          <li><a href="contact.html" data-en="Contact" data-he="יצירת קשר">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Markets" data-he="שווקים">Markets</h4>
+        <ul>
+          <li data-en="Europe" data-he="אירופה">Europe</li>
+          <li data-en="United Kingdom" data-he="בריטניה">United Kingdom</li>
+          <li data-en="USA &amp; Canada" data-he="ארה״ב וקנדה">USA &amp; Canada</li>
+          <li data-en="Russia" data-he="רוסיה">Russia</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Gilad Desert Produce Ltd. <span data-en="All rights reserved." data-he="כל הזכויות שמורות.">All rights reserved.</span></span>
+      <a class="credit" href="https://ombee.co.il" target="_blank" rel="noopener" aria-label="OMBee — ombee.co.il">
+        <span data-en="Design &amp; build by:" data-he="עיצוב ובנייה ע״י:">Design &amp; build by:</span>
+        <img src="assets/ombee-logo.png" alt="OMBee">
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
