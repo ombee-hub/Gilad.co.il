@@ -84,8 +84,8 @@ function head(titleEn, titleHe, descEn, descHe) {
 </script>
 <title data-en="${titleEn}" data-he="${titleHe}">${titleHe}</title>
 <meta name="description" data-en="${descEn}" data-he="${descHe}">
-<link rel="icon" type="image/png" href="images/icon.png">
-<link rel="apple-touch-icon" href="images/icon.png">
+<link rel="icon" type="image/png" href="images/icon.png?v=2">
+<link rel="apple-touch-icon" href="images/icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -241,7 +241,6 @@ ${GROWER_CARDS.map(([href, d, en, he, ben, bhe]) => `      <a class="value-card"
 
 const STATEMENT_PAGE = `<section class="section section--cream">
   <div class="wrap legal">
-    <span class="eyebrow" data-en="Accessibility" data-he="נגישות">Accessibility</span>
     <h1 data-en="Accessibility Statement" data-he="הצהרת נגישות">Accessibility Statement</h1>
     <p class="lead" data-en="Gilad Desert Produce is committed to equal, accessible service for all visitors, and works to make its website usable by people with disabilities." data-he="גלעד תוצרת מדבר רואה חשיבות רבה במתן שירות שוויוני לכלל הגולשים, ופועלת להנגשת אתר האינטרנט שלה לאנשים עם מוגבלות.">Gilad Desert Produce is committed to equal, accessible service for all visitors.</p>
     <h2 data-en="Our commitment" data-he="המחויבות שלנו">Our commitment</h2>
@@ -271,7 +270,6 @@ const STATEMENT_PAGE = `<section class="section section--cream">
 
 const PRIVACY_PAGE = `<section class="section section--cream">
   <div class="wrap legal">
-    <span class="eyebrow" data-en="Privacy" data-he="פרטיות">Privacy</span>
     <h1 data-en="Privacy Policy" data-he="מדיניות פרטיות">Privacy Policy</h1>
     <p class="lead" data-en="This policy explains how Gilad Desert Produce collects, uses and protects information when you use this website." data-he="מדיניות זו מסבירה כיצד גלעד תוצרת מדבר אוספת, משתמשת ושומרת מידע במסגרת השימוש באתר זה.">How Gilad Desert Produce collects, uses and protects your information.</p>
     <h2 data-en="Information we collect" data-he="איזה מידע אנו אוספים">Information we collect</h2>
