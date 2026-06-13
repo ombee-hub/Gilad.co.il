@@ -20,7 +20,7 @@
   position: fixed; top: 0; bottom: 0; right: 0; width: min(93vw, 350px); z-index: 9002;
   background: var(--ac-sand); display: flex; flex-direction: column; overflow: hidden;
   transform: translateX(100%); transition: transform .32s cubic-bezier(.4,0,.2,1);
-  font-family: "Manrope","Heebo",system-ui,sans-serif;
+  font-family: "Manrope","Assistant",system-ui,sans-serif;
 }
 .a11y-panel.open { transform: none; box-shadow: -12px 0 44px -12px rgba(0,0,0,.5); }
 .a11y-head { background: var(--ac-brand); color: #fff; padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }

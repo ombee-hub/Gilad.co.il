@@ -28,8 +28,8 @@
   --shadow:    0 18px 50px -22px rgba(70,45,20,.45);
   --shadow-sm: 0 8px 24px -14px rgba(70,45,20,.4);
 
-  --serif: "Fraunces", "Heebo", Georgia, "Times New Roman", serif;
-  --sans:  "Manrope", "Heebo", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --serif: "Fraunces", "Assistant", Georgia, "Times New Roman", serif;
+  --sans:  "Manrope", "Assistant", "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
