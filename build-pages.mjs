@@ -8,6 +8,8 @@ import { fileURLToPath } from 'node:url';
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 const read = (f) => fs.readFileSync(path.join(DIR, f), 'utf8');
 const write = (f, s) => fs.writeFileSync(path.join(DIR, f), s);
+// Base URL for canonical + hreflang (absolute, per Google). Update if a custom domain is connected.
+const SITE = 'https://ombee-hub.github.io/Gilad.co.il';
 
 // Source of truth: use the cleaned one-page source if present, otherwise
 // bootstrap from the current one-page index.html. Fixes below are idempotent.
@@ -76,9 +78,10 @@ function head(L, file, titleEn, titleHe, descEn, descHe) {
 <script>document.documentElement.className+=' pre';setTimeout(function(){document.documentElement.classList.remove('pre');},1500);</script>
 <title data-en="${titleEn}" data-he="${titleHe}">${isHe ? titleHe : titleEn}</title>
 <meta name="description" data-en="${descEn}" data-he="${descHe}" content="${isHe ? descHe : descEn}">
-<link rel="alternate" hreflang="he" href="${L.he(file)}">
-<link rel="alternate" hreflang="en" href="${L.en(file)}">
-<link rel="alternate" hreflang="x-default" href="${L.he(file)}">
+<link rel="canonical" href="${isHe ? SITE + '/' + file : SITE + '/en/' + file}">
+<link rel="alternate" hreflang="he" href="${SITE}/${file}">
+<link rel="alternate" hreflang="en" href="${SITE}/en/${file}">
+<link rel="alternate" hreflang="x-default" href="${SITE}/${file}">
 <link rel="icon" type="image/png" href="${P}images/icon.png?v=2">
 <link rel="apple-touch-icon" href="${P}images/icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -352,4 +355,20 @@ for (const L of LANGS) {
     write(L.out + p.file, html);
   }
 }
-console.log('Built he (root) + en (/en/): ' + PAGES.length + ' pages each (' + (PAGES.length * 2) + ' total)');
+// sitemap.xml (both editions, with hreflang alternates) + robots.txt
+const sm = ['<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'];
+for (const p of PAGES) {
+  for (const loc of [`${SITE}/${p.file}`, `${SITE}/en/${p.file}`]) {
+    sm.push('  <url>', `    <loc>${loc}</loc>`,
+      `    <xhtml:link rel="alternate" hreflang="he" href="${SITE}/${p.file}"/>`,
+      `    <xhtml:link rel="alternate" hreflang="en" href="${SITE}/en/${p.file}"/>`,
+      `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/${p.file}"/>`,
+      '  </url>');
+  }
+}
+sm.push('</urlset>');
+write('sitemap.xml', sm.join('\n') + '\n');
+write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+
+console.log('Built he (root) + en (/en/): ' + PAGES.length + ' pages each (' + (PAGES.length * 2) + ' total) + sitemap.xml + robots.txt');

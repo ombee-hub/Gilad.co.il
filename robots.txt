@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ombee-hub.github.io/Gilad.co.il/sitemap.xml
