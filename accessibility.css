@@ -1,7 +1,7 @@
 /* ============================================================
    Gilad — accessibility widget (brand colours) + effect classes
    ============================================================ */
-:root { --ac-brand: #723300; --ac-brand-d: #561f00; --ac-orange: #E08524; --ac-green: #5E9A3E; --ac-sand: #FCF8F1; --ac-sand2: #F6EEDF; --ac-line: #E4D6BE; --ac-ink: #2B2118; }
+:root { --ac-brand: #184830; --ac-brand-d: #0E3320; --ac-orange: #F26410; --ac-green: #6FB02A; --ac-sand: #FCF8F1; --ac-sand2: #F6EEDF; --ac-line: #E4D6BE; --ac-ink: #18281D; }
 
 /* ---------- floating button ---------- */
 .a11y-fab {
@@ -38,7 +38,7 @@
 }
 .a11y-tile:hover { border-color: var(--ac-orange); background: var(--ac-sand2); }
 .a11y-tile svg { width: 30px; height: 30px; color: var(--ac-brand); stroke-width: 1.8; }
-.a11y-tile.on { border-color: var(--ac-brand); background: #fbeede; box-shadow: 0 0 0 1px var(--ac-brand) inset; }
+.a11y-tile.on { border-color: var(--ac-brand); background: #e6f2d8; box-shadow: 0 0 0 1px var(--ac-brand) inset; }
 .a11y-tile.on svg, .a11y-tile.on { color: var(--ac-brand-d); }
 .a11y-tile .dots { display: flex; gap: 3px; height: 6px; }
 .a11y-tile .dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--ac-line); }
