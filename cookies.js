@@ -16,7 +16,7 @@
         more: 'מדיניות פרטיות', accept: 'אישור', reject: 'דחייה', aria: 'הסכמה לעוגיות' };
 
   var css =
-    '.cookie-bar{position:fixed;inset-inline:0;inset-block-end:0;z-index:9500;padding:0 16px 16px;' +
+    '.cookie-bar{position:fixed;inset-inline:0;inset-block-end:0;z-index:8900;padding:0 16px 16px;' +
       'transform:translateY(130%);transition:transform .55s cubic-bezier(.22,1,.36,1);' +
       'pointer-events:none;font-family:"Assistant",system-ui,sans-serif;}' +
     '.cookie-bar.show{transform:translateY(0);}' +
@@ -60,10 +60,13 @@
       '</div>' +
     '</div>';
   document.body.appendChild(bar);
+  // tell the accessibility button how tall the bar is, so it floats above it
+  document.documentElement.style.setProperty('--gilad-cookie-h', bar.offsetHeight + 'px');
   requestAnimationFrame(function () { requestAnimationFrame(function () { bar.classList.add('show'); }); });
 
   function decide(v) {
     try { localStorage.setItem(KEY, v); } catch (e) {}
+    document.documentElement.style.setProperty('--gilad-cookie-h', '0px'); // let the a11y button drop back
     bar.classList.remove('show');
     setTimeout(function () { if (bar.parentNode) bar.parentNode.removeChild(bar); }, 600);
   }
