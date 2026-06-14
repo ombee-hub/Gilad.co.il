@@ -356,20 +356,6 @@ for (const L of LANGS) {
     write(L.out + p.file, html);
   }
 }
-// sitemap.xml (both editions, with hreflang alternates) + robots.txt
-const sm = ['<?xml version="1.0" encoding="UTF-8"?>',
-  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'];
-for (const p of PAGES) {
-  for (const loc of [`${SITE}/${p.file}`, `${SITE}/en/${p.file}`]) {
-    sm.push('  <url>', `    <loc>${loc}</loc>`,
-      `    <xhtml:link rel="alternate" hreflang="he" href="${SITE}/${p.file}"/>`,
-      `    <xhtml:link rel="alternate" hreflang="en" href="${SITE}/en/${p.file}"/>`,
-      `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/${p.file}"/>`,
-      '  </url>');
-  }
-}
-sm.push('</urlset>');
-write('sitemap.xml', sm.join('\n') + '\n');
-write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+write('robots.txt', `User-agent: *\nAllow: /\n`);
 
-console.log('Built he (root) + en (/en/): ' + PAGES.length + ' pages each (' + (PAGES.length * 2) + ' total) + sitemap.xml + robots.txt');
+console.log('Built he (root) + en (/en/): ' + PAGES.length + ' pages each (' + (PAGES.length * 2) + ' total)');
