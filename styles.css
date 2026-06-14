@@ -29,7 +29,7 @@
   --shadow-sm: 0 8px 24px -14px rgba(70,45,20,.4);
 
   --serif: "Fraunces", "Assistant", Georgia, "Times New Roman", serif;
-  --sans:  "Manrope", "Assistant", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --sans:  "Assistant", "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
