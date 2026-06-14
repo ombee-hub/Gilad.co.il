@@ -307,6 +307,7 @@ ${footer(L)}
 
 <script src="${P}accessibility.js"></script>
 <script src="${P}app.js"></script>
+<script src="${P}cookies.js"></script>
 </body>
 </html>
 `;
