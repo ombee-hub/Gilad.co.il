@@ -3,7 +3,3 @@ Thumbs.db
 .DS_Store
 *.tmp
 *~
-
-# Build source: edited locally and read by build-pages.mjs to generate the
-# pages. Kept off the published site so it isn't served as a public page.
-_source.html
